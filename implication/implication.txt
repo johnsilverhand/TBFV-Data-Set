@@ -1,0 +1,47 @@
+SetLed:
+
+S=((msg=0)⇒(mode=1∧state=True))∧((msg=1)⇒(mode=1∧state=False))∧((msg=2)⇒(mode=0))
+
+(and
+    (and (= msg 0) → (and (= mode 1) (= state True)))
+    (and (= msg 1) → (and (= mode 1) (= state False)))
+    (and (= msg 2) → (and(= mode 0)(= state False)))
+)
+
+
+IsGetTempTime:
+
+S=((cur_tick≥start_tick∧(cur_tick−start_tick≥TIME_INTERVAL))→(read_flag=True∧start_tick=cur_tick))∧((cur_tick<start_tick∧(UINT32_MAX−start_tick+cur_tick≥TIME_INTERVAL))→(read_flag=True∧start_tick=cur_tick))∧((cur_tick<start_tick∧(UINT32_MAX−start_tick+cur_tick≥TIME_INTERVAL))→(read_flag=True∧start_tick=cur_tick))∧(¬((cur_tick≥start_tick∧(cur_tick−start_tick≥TIME_INTERVAL))∨(cur_tick<start_tick∧(UINT32_MAX−start_tick+cur_tick≥TIME_INTERVAL)))→(read_flag=False))∧(¬((cur_tick≥start_tick∧(cur_tick−start_tick≥TIME_INTERVAL))∨(cur_tick<start_tick∧(UINT32_MAX−start_tick+cur_tick≥TIME_INTERVAL)))→(read_flag=False))
+
+(and
+    (and (>= cur_tick start_tick) (>= (- cur_tick start_tick) TIME_INTERVAL) → (and (= read_flag True) (= start_tick cur_tick)))
+    (and (< cur_tick start_tick) (>= (+ (- UINT32_MAX start_tick) cur_tick) TIME_INTERVAL) → (and (= read_flag True) (= start_tick cur_tick)))
+    (not (or (and (>= cur_tick start_tick) (>= (- cur_tick start_tick) TIME_INTERVAL))
+             (and (< cur_tick start_tick) (>= (+ (- UINT32_MAX start_tick) cur_tick) TIME_INTERVAL)))
+    → (= read_flag False))
+)
+
+SetLedByLight:
+
+S=((ad_readFlag=True∧ad_value×3.3/4095≥2.57∧mode=False)→(return True))∧((𝑎𝑑_𝑟𝑒𝑎𝑑𝐹𝑙𝑎𝑔=True∧ad_value×3.3/4095<2.57∧𝑚𝑜𝑑𝑒=False)→(return False))∧((ad_readFlag=True∧ ad_value×3.3/4095<2.57∧mode=False)→(return False))∧((¬𝑎𝑑_𝑟𝑒𝑎𝑑𝐹𝑙𝑎𝑔∨𝑚𝑜𝑑𝑒=True)→(return None))((¬ad_readFlag∨mode=True)→(return None))
+
+(and
+    (and 
+        (= ad_readFlag True) 
+        (>= (/ (* ad_value 3.3) 4095) 2.57) 
+        (= mode False) 
+    → (= return True))
+    
+    (and 
+        (= ad_readFlag True) 
+        (< (/ (* ad_value 3.3) 4095) 2.57) 
+        (= mode False) 
+    → (= return False))
+    
+    (and 
+        (or 
+            (= ad_readFlag False) 
+            (= mode True)
+        ) 
+    → (= return None))
+)
