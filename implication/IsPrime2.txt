@@ -1,0 +1,48 @@
+T1 → D1
+T1：num≤3∧num>1
+D1：return true
+
+T2 → D2
+T2：num≤1
+D2：return=false
+
+T3 → D3
+T3: num>3∧∃i∈[5,⌊ sqrt(num) ⌋], i mod 6=5∧(num mod i=0 ∨ num mod(i+2)=0)
+D3：return false
+
+T4 → D4
+T4:num>3∧num mod 6 !=1∧num mod 6 !=5
+D4：return false
+
+T5 → D5
+T5：num>3∧num mod 6=1∧∀i∈[5,⌊ sqrt(num) ⌋], i mod 6=1∧num mod i !=0∧num mod(i+2) !=0
+D5：return true
+
+
+(or
+    
+    (and (<= num 3) (> num 1) → (= return true))
+
+    
+    (and (<= num 3) (<= num 1) → (= return false))
+
+    
+    (and (> num 3) 
+         (not (or (= (% num 6) 1) (= (% num 6) 5))) 
+    → 
+        (= return false))
+
+    
+    (and (> num 3)
+         (exists ((i Int)) (and (>= i 5) (<= i (sqrt num)) (= (% i 6) 5)
+                               (or (= (% num i) 0) (= (% num (+ i 2)) 0))))
+    → 
+        (= return false))
+
+    
+    (and (> num 3)
+         (forall ((i Int)) (=> (and (>= i 5) (<= i (sqrt num)) (= (% i 6) 5))
+                               (and (not (= (% num i) 0)) (not (= (% num (+ i 2)) 0)))))
+    → 
+        (= return true))
+)
