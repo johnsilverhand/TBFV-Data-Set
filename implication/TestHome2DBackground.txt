@@ -38,8 +38,9 @@ T5：backgroundList 中的资源路径格式错误
 D5：将 backgroundPath_error 加入 error_list
 
 T6 → D6
-T6：deviation 格式不为 数字,数字
-D6：将 deviation_error 加入 error_list
+T6：deviation 格式不为 “数字,数字”
+D6：将   error_list.add(deviation_error)
+长度+1，添加元素
 
 T7 → D7
 T7：type = 1 ∧ horizonY = None

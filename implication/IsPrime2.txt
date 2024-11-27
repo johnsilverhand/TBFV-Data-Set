@@ -4,7 +4,7 @@ D1：return true
 
 T2 → D2
 T2：num≤1
-D2：return=false
+D2：return false
 
 T3 → D3
 T3: num>3∧∃i∈[5,⌊ sqrt(num) ⌋], i mod 6=5∧(num mod i=0 ∨ num mod(i+2)=0)

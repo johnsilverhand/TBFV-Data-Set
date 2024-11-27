@@ -1,0 +1,44 @@
+场景描述：
+T1 → D1
+T1：a=0
+D1：Error = -1
+
+T2 → D2：
+T2：a!=0∧b^2−4*a*c>0
+D2：root1=(−b+sqrt(b^2−4*a*c))/2a∧root2= (−b−sqrt(b^2−4*a*c))/2a
+​
+T3 → D3：
+T3: a != 0 ∧ b^2 - 4*a*c = 0
+D3: root1 = -b/2a
+
+T4 → D4：
+T4: a!=0∧b^2−4*a*c < 0
+D4：realPart= -b/2a∧imaginaryPart= sqrt(−(b^2−4*a*c))/2a 
+​
+Z3描述：
+(or
+    
+    (and (= a 0)
+         → 
+         (= Error -1))
+
+    
+    (and (not (= a 0)) 
+         (> (- (* b b) (* 4 a c)) 0)
+         → 
+         (and (= root1 (/ (+ (- b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a)))
+              (= root2 (/ (- (- b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a)))))
+
+    
+    (and (not (= a 0)) 
+         (= (- (* b b) (* 4 a c)) 0)
+         → 
+         (= root1 (/ (- b) (* 2 a))))
+
+    
+    (and (not (= a 0)) 
+         (< (- (* b b) (* 4 a c)) 0)
+         → 
+         (and (= realPart (/ (- b) (* 2 a)))
+              (= imaginaryPart (/ (sqrt (- (- (* b b) (* 4 a c)))) (* 2 a)))))
+)
