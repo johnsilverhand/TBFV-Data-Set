@@ -1,0 +1,25 @@
+    or(
+            or(
+                  (<= a 0) (<= b 0)
+            ) → gcd=-1 and lcm=-1
+
+            and(
+                  (> a 0) (> b 0)
+            ) →   and(  and(
+                              (| gcd a) (| gcd b)  
+                              forall( (x Int)
+                                    and( 
+                                          (| x a) (| x b)
+                                    ) → x<=gcd
+                              )  
+                        )
+                        and(
+                              (| a lcm) (| b lcm)  
+                              forAll( (x Int)
+                                    and(
+                                          (| a x) (| b x)
+                                    ) → lcm <= x
+                              ) 
+                        )
+                  )
+      )

@@ -1,0 +1,52 @@
+```
+(or
+    (and
+        (or (<= year 0) (< month 1) (> month 12))
+    →
+        (= output "Invalid year or month")
+    )
+    (and
+        (> year 0)
+        (>= month 1)
+        (<= month 12)
+    →
+        (= dayOfWeek
+            (mod
+                (+
+                    (+
+                        (- (* (- year 1) 365)
+                           (+ (/ (- year 1) 4)
+                              (- (/ (- year 1) 100) (/ (- year 1) 400))
+                           )
+                        )
+                        (+
+                            (* 31 (> month 1))
+                            (* (if (or (and (= (mod year 4) 0)
+                                            (not (= (mod year 100) 0))
+                                         )
+                                        (= (mod year 400) 0)
+                                    )
+                                  29
+                                  28
+                                )
+                                (> month 2)
+                            )
+                            (* 31 (> month 3))
+                            (* 30 (> month 4))
+                            (* 31 (> month 5))
+                            (* 30 (> month 6))
+                            (* 31 (> month 7))
+                            (* 31 (> month 8))
+                            (* 30 (> month 9))
+                            (* 31 (> month 10))
+                            (* 30 (> month 11))
+                        )
+                    )
+                    1
+                )
+                7
+            )
+        )
+    )
+)
+```

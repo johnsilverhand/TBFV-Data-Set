@@ -1,0 +1,25 @@
+(or
+    ;; 情况 1：非法输入
+    (and (<= precision 0) → (= n "none"))
+    
+    ;; 情况 2：正常计算
+    (and (> precision 0)
+          → 
+                (
+                     (and (< (taylor_term n x) precision)
+                         (>= (taylor_term (- n 1) x) precision)
+                     )
+                )
+    
+    ;; 情况 3：x=0
+    (and (= x 0) → (= n 0))
+))
+                      
+;; 定义 taylor_term(n, x)：泰勒展开的第 n 项
+(define-fun taylor_term ((n Int) (x Real)) Real
+    (/ (* (pow -1 n) (pow x (+ (* 2 n) 1))) (factorial (+ (* 2 n) 1))))
+                      
+;; 定义 factorial(n)：阶乘函数
+(define-fun factorial ((n Int)) Int
+    (ite (= n 0) 1
+         (* n (factorial (- n 1)))))

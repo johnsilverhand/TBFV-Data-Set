@@ -1,0 +1,32 @@
+
+(or
+    ;; 情况 1：非法输入
+    (and (<= precision 0) → (= return "none"))
+    
+    ;; 情况 2：正常计算
+    (and (> precision 0)
+         →
+             (
+                (and (> (taylor_term n x) (- precision))
+                    (< (taylor_term n x) precision)
+                    (>= (taylor_term (- n 1) x) precision)
+                    (<= (taylor_term (- n 1) x) (- precision))
+                    (= result (sum_terms n x))
+                )
+             )
+    )
+    (and (= x 0) → (= result 0))
+)
+             
+;; 定义 taylor_term(n, x)：泰勒展开的第 n 项
+(define-fun taylor_term ((n Int) (x Real)) Real
+    (/ (* (pow -1 n) (pow x (+ (* 2 n) 1))) (factorial (+ (* 2 n) 1))))
+
+;; 定义 sum_terms(n, x)：累加前 n 项
+(define-fun sum_terms ((n Int) (x Real)) Real
+    (sum ((i Int) 0 n) (taylor_term i x)))
+
+;; 定义 factorial(n)：阶乘函数
+(define-fun factorial ((n Int)) Int
+    (ite (= n 0) 1
+         (* n (factorial (- n 1)))))

@@ -1,0 +1,12 @@
+T1 → D1：输入非法
+T1：precision<=0
+D1（后条件）：n="none"
+
+T2 → D2：输入合法
+T2：precision>0
+D2: (-1)^n*x^(2n+1)/(2n+1)! < precision ∧ (-1)^(n-1)*x^(2n-1)/(2n-1)! >= precision //绝对值
+
+
+T3 → D3：x输入0
+T3：x=0
+D3：n=0

@@ -1,0 +1,6 @@
+(or
+  (and (< N 0)) → (and (= s "none"))
+  (and (= N 1) (>= n 1)) → (and (= s 1))
+  (and (> N 1) (> n 1)) →
+       (or ((<= (- (pow 2 n) 1) N) → (= s ((- (pow 2 n) 1)))) ((> (- (pow 2 n) 1) N)) → s = 0)
+)

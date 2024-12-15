@@ -1,0 +1,33 @@
+```
+(or
+    (and
+        (<= num 1)
+    →
+        (and (= output "No"))
+    )
+
+    (and
+        (> num 1)
+        (exists (i)
+            (and (>= i 2)
+                 (<= i (sqrt num))
+                 (= (mod num i) 0)
+            )
+        )
+    →
+        (and (= output "No"))
+    )
+
+    (and
+        (> num 1)
+        (forall (i)
+            (and (>= i 2)
+                 (<= i (sqrt num))
+                 (not (= (mod num i) 0))
+            )
+        )
+    →
+        (and (= output "Yes"))
+    )
+)
+```

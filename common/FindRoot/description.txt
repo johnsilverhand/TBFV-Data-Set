@@ -1,0 +1,17 @@
+场景描述：
+T1 → D1
+T1：a=0
+D1：Error = -1
+
+T2 → D2：
+T2：a!=0∧b^2−4*a*c>0
+D2：root1=(−b+sqrt(b^2−4*a*c))/2a∧root2= (−b−sqrt(b^2−4*a*c))/2a
+​
+T3 → D3：
+T3: a != 0 ∧ b^2 - 4*a*c = 0
+D3: root1 = -b/2a
+
+T4 → D4：
+T4: a!=0∧b^2−4*a*c < 0
+D4：realPart= -b/2a∧imaginaryPart= sqrt(−(b^2−4*a*c))/2a 
+​

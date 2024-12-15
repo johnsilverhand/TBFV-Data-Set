@@ -1,0 +1,6 @@
+(or
+  (and (<= n 1) → (= g -1))
+  (and (> n 0) →
+    (or (= (pow g 2) n) (or (> (pow g k) n) (< (pow g 2) n) → (= g 0)))
+  )
+)

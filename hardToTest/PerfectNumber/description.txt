@@ -1,0 +1,22 @@
+PerfectNumber-完全数问题：对于一个正整数，它和除了它自身以外的所有正因子之和相等,如 28 = 1 + 2 + 4 + 7 + 14
+根据欧几里得-欧拉定理，每个偶完全数都可以写成2^{p-1}(2^p−1)的形式，其中p为素数且2^{p-1}为素数，并且尚未发现奇完全数
+判断数字num是否是完全数
+
+S =
+num mod 2 = 1 ⇒ result = false
+∨
+num mod 2 = 0 ∧ ∃ p(num = pow(2, p - 1) * (pow(2, p) - 1) ∧ ∀ i(1 < i ∧ i < p ⇒ (p mod i > 0 ∨ p mod i < 0)) ∀ j(1 < j ∧ j < pow(2, p - 1) ⇒ (pow(2, p - 1) mod j > 0 ∨ pow(2, p - 1) mod j < 0)))
+⟹ result = true
+∨
+num mod 2 = 0 ∧ ¬∃ p(num = pow(2, p - 1) * (pow(2, p) - 1) ∧ ∀ i(1 < i ∧ i < p ⇒ (p mod i > 0 ∨ p mod i < 0)) ∀ j(1 < j ∧ j < pow(2, p - 1) ⇒ (pow(2, p - 1) mod j > 0 ∨ pow(2, p - 1) mod j < 0)))
+⟹ result = false
+
+
+T1: num mod 2 = 1
+D1: result = false
+
+T2: num mod 2 = 0 ∧ ∃p(num = 2^(p-1) * (2^p - 1) ∧ ∀i(1 < i < p ⇒ (p mod i > 0 ∨ p mod i < 0)) ∧ ∀j(1 < j < 2^(p-1) ⇒ (2^(p-1) mod j > 0 ∨ 2^(p-1) mod j < 0)))
+D2: result = true
+
+T3: num mod 2 = 0 ∧ ¬∃p(num = 2^(p-1) * (2^p - 1) ∧ ∀i(1 < i < p ⇒ (p mod i > 0 ∨ p mod i < 0)) ∧ ∀j(1 < j < 2^(p-1) ⇒ (2^(p-1) mod j > 0 ∨ 2^(p-1) mod j < 0)))
+D3: result = false

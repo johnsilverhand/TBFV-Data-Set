@@ -1,0 +1,26 @@
+RectangleOverlap-矩形重叠位置判定
+两个矩形分别为rect1<a_1,b_1,c_1,d_1>,rect2<a_2,b_2,c_2,d_2>(left, bottom, right, top)
+
+S=
+(c_1 < a_2) ∨ (a_1 > c_2) ∨ (d_1 < b_2) ∨ (b_1 > d_2)
+⟹ return "不重叠"
+∨
+((c_1 = a_2) ∨ (a_1 = c_2) ∨ (d_1 = b_2) ∨ (b_1 = d_2))
+∧ ¬((c_1 ≤ a_2) ∨ (a_1 ≥ c_2) ∨ (d_1 ≤ b_2) ∨ (b_1 ≥ d_2))
+⟹ return "相邻"
+∨
+((c_1 > a_2) ∨ (a_1 > c_2) ∨ (d_1 > b_2) ∨ (b_1 > d_2))
+∧ ¬((c_1 ≤ a_2) ∨ (a_1 ≥ c_2) ∨ (d_1 ≤ b_2) ∨ (b_1 ≥ d_2))
+⟹ return (min(c_1, c_2) - max(a_1, a_2)) * (min(d_1, d_2) - max(b_1, b_2))
+
+
+
+T1: c_1 < a_2 ∧ a_1 > c_2 ∧ d_1 < b_2 ∧ b_1 > d_2
+D1: return "不重叠"
+
+T2: (c_1 = a_2) ∨ (a_1 = c_2) ∨ (d_1 = b_2) ∨ (b_1 = d_2)
+D2: return "相邻"
+
+T3: (c_1 > a_2) ∨ (a_1 > c_2) ∨ (d_1 > b_2) ∨ (b_1 > d_2)
+D3: return (min(c_1, c_2) - max(a_1, a_2)) × (min(d_1, d_2) - max(b_1, b_2))
+

@@ -1,0 +1,19 @@
+
+(or
+    
+    (and (= params NULL) → (= params Display_defaultParams))
+
+    
+    (exists ((i Int))
+        (and (not (= Display_config[i].fxnTablePtr NULL))
+             (or (= id i) (and (/= id 0) (Display_config[i].fxnTablePtr.getTypeFxn() & id)))
+             (/= Display_config[i].fxnTablePtr.openFxn(Display_config[i], params) NULL))
+    → (= handle Display_config[i]))
+
+    
+    (forall ((i Int))
+        (or (= Display_config[i].fxnTablePtr NULL)
+            (not (or (= id i) (and (/= id 0) (Display_config[i].fxnTablePtr.getTypeFxn() & id)))
+            (= Display_config[i].fxnTablePtr.openFxn(Display_config[i], params) NULL)))
+    → (= handle NULL))
+)

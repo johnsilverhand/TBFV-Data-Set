@@ -1,0 +1,19 @@
+PyramidLayers-金字塔砖块求解
+金字塔顶端一个砖块，向下依次为2^2,3^2,...,n^2，现给N个砖块，求解可以垒成的金字塔的层数
+利用1^2+2^2+3^2+...+n^2=n(n+1)(2n+1)/6
+
+S =
+N ≤ 0
+⟹ result = 0
+∨
+N > 0
+⟹ result * (result + 1) * (2 * result + 1) / 6 ≤ N ∧ (result + 1) * (result + 2) * (2 * result + 3) / 6 > N
+
+
+
+T1: N ≤ 0
+D1: result = 0
+
+T2: N > 0
+D2: (result * (result + 1) * (2 * result + 1))/6 ≤ N
+∧ ((result + 1) * (result + 2) * (2 * (result + 1) + 3))/6 > N

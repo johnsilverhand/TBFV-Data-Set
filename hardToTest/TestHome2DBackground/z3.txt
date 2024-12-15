@@ -1,0 +1,77 @@
+
+(or
+    (and 
+        (not (= Unnamed "是")) 
+    → 
+        (= return "pass"))
+
+    (and 
+        (= Unnamed "是") (= type None) 
+    → 
+        (add_error error_list type_null))
+
+    (and 
+        (= Unnamed "是") (not (or (= type 1) (= type 2))) 
+    → 
+        (add_error error_list type_error))
+
+    (and 
+        (= backgroundList None) 
+    → 
+        (add_error error_list backgroundPath_null))
+
+    (and 
+        (not (valid_paths backgroundList)) 
+    → 
+        (add_error error_list backgroundPath_error))
+
+    (and 
+        (not (valid_deviation deviation)) 
+    → 
+        (add_error error_list deviation_error))
+
+    (and 
+        (= type 1) (= horizonY None) 
+    → 
+        (add_error error_list horizonY_null))
+
+    (and 
+        (= type 1) (not (valid_integer horizonY)) 
+    → 
+        (add_error error_list horizonY_error))
+
+    (and 
+        (= type 1) (= nightBackgroundList None) 
+    → 
+        (add_error error_list nightBackgroundPath_null))
+
+    (and 
+        (= type 1) (not (valid_paths nightBackgroundList)) 
+    → 
+        (add_error error_list nightBackgroundPath_error))
+
+    (and 
+        (= type 1) (not (valid_speed_list nightBackgroundSpeedList nightBackgroundList)) 
+    → 
+        (add_error error_list nightBackgroundSpeed_null))
+
+    (and 
+        (= type 1) (not (valid_speed_format nightBackgroundSpeedList)) 
+    → 
+        (add_error error_list nightBackgroundSpeed_error))
+
+    (and 
+        (= backgroundSpeedList None) 
+    → 
+        (add_error error_list backgroundSpeed_null))
+
+    (and 
+        (not (valid_speed_list backgroundSpeedList backgroundList)) 
+    → 
+        (add_error error_list backgroundSpeed_error))
+
+    (and 
+        (valid_all_conditions) 
+    → 
+        (= return "pass"))
+)

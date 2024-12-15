@@ -1,0 +1,18 @@
+(or
+    
+    (and (= root None) → (= return True))
+
+    
+    (and (exists ((i Int)) 
+                 (and (>= i 1) (< i (len vec)) (<= (select vec i) (select vec (- i 1)))))
+         → 
+         (= return False))
+
+    
+    (and (forall ((i Int))
+                 (or (< i 1) 
+                     (>= i (len vec)) 
+                     (> (select vec i) (select vec (- i 1)))))
+         → 
+         (= return True))
+)

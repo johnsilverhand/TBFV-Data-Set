@@ -1,0 +1,12 @@
+```
+T1 := (A.length != b.length) ∨ (A.length != x.length);
+D1 := result = "none";
+T2 := (tolerance <= 0) ∨ (maxIterations <= 0);
+D2 := result = "none";
+T3 := (iterations < maxIterations);
+D3 := (exists i (xNew[i] = (b[i] - Σ(A[i][j] * x[j], j ≠ i)) / A[i][i]) ∧ diff = Σ((xNew[i] - x[i])^2));
+T4 := (sqrt(diff) ≤ tolerance);
+D4 := result = xNew;
+T5 := (iterations ≥ maxIterations);
+D5 := result = xNew;
+```

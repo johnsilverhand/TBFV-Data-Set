@@ -1,0 +1,7 @@
+
+(or
+    (and (< x 0) → (= Error -1))
+    (and (= x 0) → (= n 0))
+    (and (> x 0)
+         → (and (>= (pow 3 n) x) (< (pow 3 (- n 1)) x)))
+)

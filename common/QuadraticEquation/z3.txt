@@ -1,0 +1,19 @@
+    (or
+            (> (- (* b b) (* 4 a c)) 0)
+            → return((-b+sqrt(b*b-4ac))/2a,(-b-sqrt(b*b-4ac))/2a)
+
+            (or
+                  (= (- (* b b) (* 4 a c)) 0)
+                  (not
+                        (> (- (* b b) (* 4 a c)) 0)
+                  )
+            ) → return(-b/2a)
+
+            (or
+                  (< (- (* b b) (* 4 a c)) 0)
+                  (not
+                        (>= (- (* b b) (* 4 a c)) 0)
+                  )
+            ) → return(两个虚根)
+      )
+

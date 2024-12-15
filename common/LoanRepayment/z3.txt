@@ -1,0 +1,8 @@
+```
+(or
+  (or (<= P_target 0) (<= P0 0) (<= r 0))
+    → (result = "none")
+  (and (> P_target 0) (> P0 0) (> r 0))
+    → (exists t (and (< (* P0 (pow (+ 1 r) (- t 1))) (* P0 (pow (+ 1 r) t))) P_target)))
+)
+```

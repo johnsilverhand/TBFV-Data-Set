@@ -1,0 +1,24 @@
+QuickSortSinglePass-快速排序的单趟排序(带基准值)
+输入参数为arr[ ],low,high，pivot，输出标志及返回值为flag、arr[ ]
+
+S =
+low > high
+⟹ flag = -1
+∨
+low = high
+⟹ flag = 0
+∨
+low < high
+⟹ flag = 1
+∧ ∃ i(arr[i] = pivot ∧ ∀ x(x < i ∧ x ≥ low ⟹ arr[x] < pivot) ∧ ∀ x(x > i ∧ x ≤ high ⟹ arr[x] > pivot))
+
+
+
+T1: low > high
+D1: flag = -1
+
+T2: low = high
+D2: flag = 0
+
+T3: low < high
+D3: flag = 1 ∧ ∃i(arr[i] = pivot ∧ ∀x (x < i ∧ x ≥ low ⇒ arr[x] < pivot) ∧ ∀x (x > i ∧ x ≤ high ⇒ arr[x] > pivot))

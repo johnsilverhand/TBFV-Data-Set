@@ -1,0 +1,4 @@
+(or
+    (and (<= n 0) → (= s -1)
+    (and (> n 0) → (and (> (pow 2 s) n) (<= (pow 2 s-1) n)))
+)

@@ -1,0 +1,19 @@
+```
+(or
+  (or (<= b a) (<= n 0))
+    → (result = "none")
+  (and (> (b - a) 0) (> n 0))
+    → (exists k (and (fibonacci(k) >= (b - a) / 0.0001)
+        (for k from 0 to n)
+        (and (fibonacci(k - 2) / fibonacci(k) * (b - a) + a = x1)
+             (fibonacci(k - 1) / fibonacci(k) * (b - a) + a = x2)
+             (and (k > 1)
+                 (if (func(x1) < func(x2))
+                    then (b = x2)
+                    else (a = x1))
+             )
+        )
+    )
+    → (result = (a + b) / 2)
+)
+```

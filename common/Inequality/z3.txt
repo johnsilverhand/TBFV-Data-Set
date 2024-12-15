@@ -1,0 +1,5 @@
+(or
+  (and (<= y 0) → (= n "none"))
+  (and (> y 0) (<= y 2)) → (= n 0)
+  (and (> y 2) (and (< (pow 2 n) (pow 3 n) y) (>= (pow 2 (n+1)) (pow 3 (n+1)) y)))
+)

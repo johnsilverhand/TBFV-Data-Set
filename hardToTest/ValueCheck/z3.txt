@@ -1,0 +1,32 @@
+(or
+    (and 
+        (not (= cell_value None)) 
+        (not (= cell_value "")) 
+        (not (= cell_value " ")) 
+        (re.match number_pattern cell_value) 
+        (= (- (float cell_value) (int (float cell_value))) 0) 
+    → 
+    (and (= return_value (int cell_value)) (= return_type int)))
+
+    (and 
+        (not (= cell_value None)) 
+        (not (= cell_value "")) 
+        (not (= cell_value " ")) 
+        (re.match number_pattern cell_value) 
+        (not (= (- (float cell_value) (int (float cell_value))) 0)) 
+    → 
+    (and (= return_value cell_value) (= return_type string)))
+
+    (and 
+        (not (= cell_value None)) 
+        (not (= cell_value "")) 
+        (not (= cell_value " ")) 
+        (not (re.match number_pattern cell_value)) 
+    → 
+    (and (= return_value cell_value) (= return_type string)))
+
+    (and 
+        (or (= cell_value None) (= cell_value "") (= cell_value " ")) 
+    → 
+    (and (= return_value None) (= return_type NoneType)))
+)

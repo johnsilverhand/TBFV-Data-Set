@@ -1,0 +1,11 @@
+T1 → D1：空树的情况
+T1：root=None
+D1：return=True
+
+T2 → D2：列表中存在非递增元素
+T2: root!=None ∧ ∃i∈[1,len(vec)-1] | vec[i] <= vec[i-1]
+D2: return=False
+
+T3 → D3：列表中元素递增
+T3: root!=None ∧ ∀i∈[0,len(vec)-1] | vec[i] > vec[i-1]
+D3: return=True

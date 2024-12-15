@@ -1,0 +1,5 @@
+```
+T1 := num ≤ 1;D1 := result = "No"
+T2 := num > 1 ∧ ∃i ∈ [2, √num] ∧ num % i = 0;D2 := result = "No"
+T3 := num > 1 ∧ ∀i ∈ [2, √num] ∧ num % i ≠ 0;D3 := result = "Yes"
+```

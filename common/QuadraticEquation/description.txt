@@ -1,0 +1,23 @@
+QuadraticEquation-一元二次方程实数根的求解
+方程为ax^2+bx+c=0
+
+S=
+(b^2 - 4ac > 0)
+⟹ return ((-b + sqrt(b^2 - 4ac)) / 2a, (-b - sqrt(b^2 - 4ac)) / 2a)
+∨
+(b^2 - 4ac = 0) ∨ ¬(b^2 - 4ac > 0)
+⟹ return (-b / 2a)
+∨
+(b^2 - 4ac < 0) ∨ ¬(b^2 - 4ac ≥ 0)
+⟹ return "两个虚根"
+
+
+
+T1: b^2 - 4ac > 0
+D1: return (−b + √(b^2 - 4ac))/(2a), (−b − √(b^2 - 4ac))/(2a)
+
+T2: b^2 - 4ac = 0
+D2: return −b/(2a)
+
+T3: b^2 - 4ac < 0
+D3: return "两个虚根"

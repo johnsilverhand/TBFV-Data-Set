@@ -1,0 +1,4 @@
+```
+T1 := P_target <= 0 ∨ P0 <= 0 ∨ r <= 0; D1 := result = "none";
+T2 := P_target > 0 ∧ P0 > 0 ∧ r > 0; D2 := P0 * pow(1+r,t-1) < P0 * pow(1+r,t) < P_target;
+```

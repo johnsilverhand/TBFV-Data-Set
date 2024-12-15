@@ -1,0 +1,14 @@
+
+(or
+    (and (< x 0) → (= return "none"))
+    (and (= x 0) → (= return 0))
+    (and (> x 0)
+         → (and (>= (fib n) x) 
+                      (< (fib (- n 1)) x)
+                      ))
+)
+
+(define-fun fib ((n Int)) Int
+  (ite (= n 0) 0
+       (ite (= n 1) 1
+            (+ (fib (- n 1)) (fib (- n 2))))))

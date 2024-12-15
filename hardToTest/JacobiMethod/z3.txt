@@ -1,0 +1,17 @@
+```
+(or
+  (or (not (= (length A) (length b))) (not (= (length A) (length x))))
+    → (result = "none")
+  (or (<= tolerance 0) (<= maxIterations 0))
+    → (result = "none")
+  (and (iterations < maxIterations)
+       (exists i (and (xNew[i] = (b[i] - Σ(A[i][j] * x[j], j ≠ i)) / A[i][i])
+                  (diff = Σ((xNew[i] - x[i])^2))))
+    → (result = (exists xNew[i] (xNew)))
+  (and (sqrt(diff) ≤ tolerance)
+       (iterations < maxIterations))
+    → (result = xNew)
+  (and (iterations ≥ maxIterations))
+    → (result = xNew)
+)
+```

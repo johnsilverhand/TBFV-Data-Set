@@ -1,0 +1,7 @@
+```
+S = ((a = 0 ∧ b = 0) ⇒ Exception("GCD undefined"))
+  ∨ ((a = 0 ∧ b ≠ 0) ⇒ (g = b))
+  ∨ ((a ≠ 0 ∧ b = 0) ⇒ (g = a))
+  ∨ ((a ≠ 0 ∧ b ≠ 0) ⇒ (g = r ∧ (r | a) ∧ (r | b) ∧ (forall ((k Int)) (=> (and (| k a) (| k b)) (<= k g)) ))
+```
+

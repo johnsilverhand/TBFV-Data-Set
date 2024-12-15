@@ -1,0 +1,10 @@
+```
+(or
+  (or (<= A_target 0) (<= A0 0) (<= lambda 0))
+    → (result = "none")
+  (and (= A_target 0) (> A0 0) (> lambda 0))
+    → (result = ∞)
+  (and (> A_target 0) (> A0 0) (> lambda 0))
+    → (exists t (and (< (* A0 (pow e (* - lambda (- t 0.1)))) (* A0 (pow e (* - lambda t)))) A_target)))
+)
+```

@@ -1,0 +1,6 @@
+```
+(and
+    (and (not (= n 0)) (not (= sales null)) (>= n 2))
+    (exists (x y) (and (>= x 0) (< x n) (>= y 0) (< y n) (not (= x y))))
+)
+```

@@ -1,0 +1,61 @@
+    or(
+    (= (mod num 2) 1) 
+    → (= result false)
+
+    and(
+        (= (mod num 2) 0)
+        exists((p Int)
+            and(
+                (= num (* (pow 2 (- p 1)) (- (pow 2 p) 1)))
+                forall((i Int)
+                    and(
+                        (> i 1)
+                        (< i p)
+                        or(
+                            (> (mod p i) 0)
+                            (< (mod p i) 0)
+                        )
+                    )
+                )
+                forall((j Int),
+                    and(
+                        (> j 1)
+                        (< j (pow 2 (- p 1)))
+                        or(
+                            (> (mod (pow 2 (- p 1)) j) 0)
+                            (< (mod (pow 2 (- p 1)) j) 0)
+                        )
+                    )
+                )
+            )
+        )
+    )
+    and(
+        (= (mod num 2) 0)
+        not(exists((p Int)
+            and(
+                (= num (* (pow 2 (- p 1)) (- (pow 2 p) 1)))
+                forall((i Int)
+                    and(
+                        (> i 1)
+                        (< i p)
+                        or(
+                            (> (mod p i) 0)
+                            (< (mod p i) 0)
+                        )
+                    )
+                )
+                forall((j Int)
+                    and(
+                        (> j 1)
+                        (< j (pow 2 (- p 1)))
+                        or(
+                            (> (mod (pow 2 (- p 1)) j) 0)
+                            (< (mod (pow 2 (- p 1)) j) 0)
+                        )
+                    )
+                )
+            )
+        )) → (= result false)
+    )
+)

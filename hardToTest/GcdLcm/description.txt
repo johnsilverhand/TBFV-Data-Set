@@ -1,0 +1,15 @@
+GcdLcm-gcd_lcm的求解
+输入值为a,b，存储结果为gcd,lcm
+
+S=
+(a ≤ 0) ∨ (b ≤ 0)
+⟹ gcd = -1 ∧ lcm = -1
+∨
+(a > 0) ∧ (b > 0)
+⟹ (gcd | a ∧ gcd | b ∧ (∀ x(x | a ∧ x | b) ⇒ x ≤ gcd)) ∧ (a | lcm ∧ b | lcm ∧ (∀ x(a | x ∧ b | x) ⟹ lcm ≤ x))
+
+T1: a ≤ 0 ∨ b ≤ 0
+D1: gcd = -1 ∧ lcm = -1
+
+T2: a > 0 ∧ b > 0
+D2: (gcd | a ∧ gcd | b ∧ (∀x (x | a ∧ x | b) ⇒ x ≤ gcd)) ∧ (a | lcm ∧ b | lcm ∧ (∀x (a | x ∧ b | x) ⇒ lcm ≤ x))

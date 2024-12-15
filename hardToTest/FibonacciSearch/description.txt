@@ -1,0 +1,6 @@
+```
+T1 := (b <= a) ∨ (n <= 0);D1 := result = "none";
+T2 := (b - a) / 0.0001 > fibonacci(k-1);D2 := (k = k + 1);
+T3 := (k > 1) ∧ (func(x1) < func(x2));D3 := b = x2;
+T4 := (k > 1) ∧ (func(x1) >= func(x2));D4 := a = x1;
+```

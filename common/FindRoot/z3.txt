@@ -1,0 +1,27 @@
+
+(or
+    
+    (and (= a 0)
+         → 
+         (= Error -1))
+
+    
+    (and (not (= a 0)) 
+         (> (- (* b b) (* 4 a c)) 0)
+         → 
+         (and (= root1 (/ (+ (- b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a)))
+              (= root2 (/ (- (- b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a)))))
+
+    
+    (and (not (= a 0)) 
+         (= (- (* b b) (* 4 a c)) 0)
+         → 
+         (= root1 (/ (- b) (* 2 a))))
+
+    
+    (and (not (= a 0)) 
+         (< (- (* b b) (* 4 a c)) 0)
+         → 
+         (and (= realPart (/ (- b) (* 2 a)))
+              (= imaginaryPart (/ (sqrt (- (- (* b b) (* 4 a c)))) (* 2 a)))))
+)

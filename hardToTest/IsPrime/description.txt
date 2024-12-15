@@ -1,0 +1,19 @@
+场景描述：
+
+T1 → D1：
+T1：n < 2
+D1：return 0
+
+T2 → D2：
+T2：n != 2 ∧ n % 2 == 0
+D2：return 0
+
+T3 → D3：
+T3：n≥3 ∧n mod 2 !=0 ∧(∃i∈[3,⌊n/2⌋) | i mod 2 != 0∧ n mod i =0)
+D3：return 0
+
+T4 → D4：
+T4：n mod 2 != 0∧(∀i∈[3,⌊n/2⌋) | i mod 2 != 0 ⟹ n mod i !=0)
+D4：return 1
+
+

@@ -1,0 +1,25 @@
+    or(
+            (> low high) → flag = -1
+            (= low high) → flag = 0
+            (< low high)
+            → and(
+                  (= flag 1)
+                  exist( (i Int)
+                        and(
+                              (= arr[i] pivot)
+                              forall( (x Int)
+                                    and(
+                                          (< x i)
+                                          (>= x low)
+                                    ) → arr[x] < pivot
+                              )
+                              forall( (x Int)
+                                    and(
+                                          (> x i)
+                                          (<= x hight)
+                                    ) → arr[x] > pivot
+                              )
+                        )
+                  )
+            )
+      )

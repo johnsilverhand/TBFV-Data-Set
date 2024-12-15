@@ -1,0 +1,5 @@
+```
+T1 := A_target < 0 ∨ A0 <= 0 ∨ lambda <= 0; D1 := result = "none";
+T2 := A_target = 0 ∧ A0 > 0 ∧ lambda > 0; D2 := result = ∞;
+T3 := A_target > 0 ∧ A0 > 0 ∧ lambda > 0; D3 := A0 * pow(e,-lambda * （t-0.1）) < A0 * pow(e,-lambda * t) < A_target;
+```

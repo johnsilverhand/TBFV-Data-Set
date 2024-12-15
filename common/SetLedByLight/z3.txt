@@ -1,0 +1,25 @@
+
+
+(or
+    (and 
+        (= ad_readFlag True) 
+        (>= (/ (* ad_value 3.3) 4095) 2.57) 
+        (= mode False) 
+    → 
+    (= return True))
+    
+    (and 
+        (= ad_readFlag True) 
+        (< (/ (* ad_value 3.3) 4095) 2.57) 
+        (= mode False) 
+    → 
+    (= return False))
+    
+    (and 
+        (or 
+            (= ad_readFlag False) 
+            (= mode True)
+        ) 
+    → 
+    (= return None))
+)

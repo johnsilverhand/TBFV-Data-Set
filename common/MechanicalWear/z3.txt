@@ -1,0 +1,8 @@
+```
+(or
+  (or (<= E_target 0) (<= E0 0) (<= T 0))
+    → (result = "none")
+  (and (> E_target 0) (> E0 0) (> T 0))
+    → (exists t (and (< (* E0 (- 1 (/ (- t 1) T))) (* E0 (- 1 (/ t T)))) E_target)))
+)
+```

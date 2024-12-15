@@ -1,0 +1,28 @@
+
+(or
+    
+    (and (<= num 3) (> num 1) → (= return true))
+
+    
+    (and (<= num 3) (<= num 1) → (= return false))
+
+    
+    (and (> num 3) 
+         (not (or (= (% num 6) 1) (= (% num 6) 5))) 
+    → 
+        (= return false))
+
+    
+    (and (> num 3)
+         (exists ((i Int)) (and (>= i 5) (<= i (sqrt num)) (= (% i 6) 5)
+                               (or (= (% num i) 0) (= (% num (+ i 2)) 0))))
+    → 
+        (= return false))
+
+    
+    (and (> num 3)
+         (forall ((i Int)) (=> (and (>= i 5) (<= i (sqrt num)) (= (% i 6) 5))
+                               (and (not (= (% num i) 0)) (not (= (% num (+ i 2)) 0)))))
+    → 
+        (= return true))
+)

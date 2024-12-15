@@ -1,0 +1,4 @@
+```
+T1 := n < 2 ∨ sales = null;D1 := result = 0
+T2 := n ≥ 2 ∧ sales ≠ null ∧ ∀x, y. (0 ≤ x < y < n);D2 := maxIncrease = max(A[y] - A[x])
+```

@@ -1,0 +1,20 @@
+T1 → D1
+T1：num≤3∧num>1
+D1：return true
+
+T2 → D2
+T2：num≤1
+D2：return false
+
+T3 → D3
+T3: num>3∧∃i∈[5,⌊ sqrt(num) ⌋], i mod 6=5∧(num mod i=0 ∨ num mod(i+2)=0)
+D3：return false
+
+T4 → D4
+T4:num>3∧num mod 6 !=1∧num mod 6 !=5
+D4：return false
+
+T5 → D5
+T5：num>3∧num mod 6=1∧∀i∈[5,⌊ sqrt(num) ⌋], i mod 6=1∧num mod i !=0∧num mod(i+2) !=0
+D5：return true
+

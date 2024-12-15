@@ -1,0 +1,21 @@
+```
+T1 := year < 1 ∨ year > 9999 ∨ month < 1 ∨ month > 12
+D1 := 输出 "输入年份或月份超出范围"
+T2 := year ≥ 1 ∧ year ≤ 9999 ∧ month ≥ 1 ∧ month ≤ 12
+D2 := dayOfWeek = (((year - 1) * 365
+            + ⌊(year - 1) / 4⌋
+            - ⌊(year - 1) / 100⌋
+            + ⌊(year - 1) / 400⌋
+            + 31*(month > 1)
+            + (isLeapYear(year) ? 29 : 28)*(month > 2)
+            + 31*(month > 3)
+            + 30*(month > 4)
+            + 31*(month > 5)
+            + 30*(month > 6)
+            + 31*(month > 7)
+            + 31*(month > 8)
+            + 30*(month > 9)
+            + 31*(month > 10)
+            + 30*(month > 11)
+            + 1) % 7
+```

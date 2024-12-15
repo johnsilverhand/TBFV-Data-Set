@@ -1,0 +1,46 @@
+
+
+(or
+    
+    (and (> ledStatus LED_INDEX_2) 
+         → 
+         (and (= (forall ((i Int)) (= NBEK_Led[i].led_mode NBEK_Led[i].led_mode))
+                 (= highPriority highPriority))))
+
+    
+    (and (<= ledStatus LED_INDEX_2) 
+         (not (= highPriority ledStatus)) 
+         → 
+         (and (= NBEK_Led[ledStatus].led_mode 0)
+              (= (forall ((i Int) (not (= i ledStatus))) 
+                     (= NBEK_Led[i].led_mode NBEK_Led[i].led_mode)))
+              (= highPriority highPriority)))
+
+    
+    (and (<= ledStatus LED_INDEX_2) 
+         (= highPriority ledStatus) 
+         → 
+        
+        (and (>= ledStatus 0)
+            (<= ledStatus LED_INDEX_2)
+            → 
+            (= (select NBEK_Led ledStatus) 0))
+
+       
+        (and (exists ((i Int))
+                    (and (>= i 0)
+                        (<= i LED_INDEX_2)
+                        (> (bitwise-and (select NBEK_Led i) HAL_LED_BLINK) 0)))
+            → 
+            (= highPriority (max ((j Int))
+                                (and (>= j 0)
+                                    (<= j LED_INDEX_2)
+                                    (> (bitwise-and (select NBEK_Led j) HAL_LED_BLINK) 0))))))
+
+        
+        (and (not (exists ((i Int))
+                        (and (>= i 0)
+                            (<= i LED_INDEX_2)
+                            (> (bitwise-and (select NBEK_Led i) HAL_LED_BLINK) 0))))
+            → 
+            (= highPriority LED_INDEX_0)))

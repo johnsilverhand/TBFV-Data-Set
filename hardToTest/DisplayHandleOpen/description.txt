@@ -1,0 +1,26 @@
+函数描述
+输入
+id∈N：显示驱动程序的标识符。
+params：指向 Display_Params 类型的指针，若为 NULL，默认使用 Display_defaultParams。
+输出
+返回值 handle(也可以直接return)
+如果成功打开显示驱动程序，返回对应的 Display_Handle。
+如果所有尝试均失败，返回 NULL。
+全局数据
+Display_config：一个数组，每个元素包含：
+    fxnTablePtr：指向函数表的指针，定义驱动的接口函数。
+    getTypeFxn()：获取驱动类型。
+    openFxn()：尝试打开驱动的函数。
+
+T1 → D1：参数为 NULL
+T1：params=NULL
+D1：~params=Display_defaultParams
+
+T2 → D2：成功打开匹配的驱动
+T2:(∃i∈N|(Display_config[i].fxnTablePtr!=NULL)∧(id=i∨(Display_config[i].fxnTablePtr.getTypeFxn()∧id!=0))∧Display_config[i].fxnTablePtr.openFxn(Display_config[i],params)!=NULL)
+D2：Handle = Display_config[i]
+
+T3 → D3：未找到匹配的驱动
+T3:(∀i∈N|Display_config[i].fxnTablePtr!=NULL∧¬(id=i∨(Display_config[i].fxnTablePtr.getTypeFxn()∧id!=0))∨Display_config[i].fxnTablePtr.openFxn(Display_config[i],params)=NULL)
+D3：Handle = NULL
+
