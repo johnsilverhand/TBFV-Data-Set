@@ -1,9 +1,6 @@
 # TBFV-Data-Set
 TBFV的数据集（与需求一致的代码）
 
-## 规约大概格式
-![302a02c7260af0bf1ea4f09b957d0e28](https://github.com/user-attachments/assets/6420e6c2-97ab-487d-b897-f3946dccf1d4)
-![1d2db66fbd3eadeae6849dbeec48ae16](https://github.com/user-attachments/assets/c385ea0e-a26c-4963-985f-9130c7cc7322)
 
 ## 目录结构
 一级目录结构如下：
@@ -42,4 +39,9 @@ sample
     1. 代码分支条件错误：代码中的条件判断与需求规约不符，如if(a>0)写成if(a>=0)、if和elseif的顺序颠倒等
     2. 代码部分分支缺失：代码中缺少了某个分支，如if(a>0)没有else分支
     3. 代码逻辑错误：代码中的逻辑与需求规约不符，如if(a>0)需执行a=a+1，但写成了a=a-1或者没执行
+
+## 规约大概格式
+![302a02c7260af0bf1ea4f09b957d0e28](https://github.com/user-attachments/assets/6420e6c2-97ab-487d-b897-f3946dccf1d4)
+![1d2db66fbd3eadeae6849dbeec48ae16](https://github.com/user-attachments/assets/c385ea0e-a26c-4963-985f-9130c7cc7322)
+
    
