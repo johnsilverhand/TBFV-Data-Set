@@ -1,0 +1,16 @@
+name: Bug Report
+description: 报告一个错误
+body:
+  - type: dropdown
+    id: bug_type
+    attributes:
+      label: 错误类型
+      options: [崩溃, 功能错误, UI问题]
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      required: true
+      conditions:
+        field: bug_type
+        value: 崩溃
