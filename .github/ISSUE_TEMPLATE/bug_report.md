@@ -2,7 +2,7 @@
 name: 🐞 Bug
 about: File a bug/issue
 title: '[BUG] <title>'
-labels: bug, Needs Triage
+labels: 'bug, Needs Triage'
 assignees: ''
 
 ---
